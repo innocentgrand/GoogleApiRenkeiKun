@@ -57,7 +57,12 @@ class HttpClient {
 	}
 	
 	public function post($data, $head = array() , $modeJson = false) {
-		$postd = http_build_query($data, "", "&");
+		if (is_array($data) || is_object($data)) {
+			$postd = http_build_query($data, "", "&");
+		}
+		else {
+			$postd = $data;
+		}
 		if ($head) {
 			$sendHeader = $head;
 			if ($modeJson) {
