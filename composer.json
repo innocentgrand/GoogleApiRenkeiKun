@@ -5,11 +5,13 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "yuta",
+            "name": "yuta(innocentgrand.inc)",
             "email": "yamakawa@innocentgrand.co.jp"
         }
     ],
-    "require": {},
+    "require": {
+		"psy/psysh" : "^0.9.9"	
+	},
 	"autoload": {
 		"psr-4": {
 			"Innocentgrand\\GoogleApiRenkeiKun\\": "src/GoogleApiRenkeiKun/"
