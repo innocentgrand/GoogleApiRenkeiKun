@@ -18,7 +18,6 @@ class GoogleOAuth2 {
 		$jwtData = $jwt->encode(array("iss" =>  $this->_json['client_email'],"aud" => $this->_json['token_uri'],"scope" => $this->_scope));
 		$client = new HttpClient($this->_json['token_uri']);
 		$body = $client->post(array('grant_type' => $this->_grantType,'assertion' =>$jwtData));
-		error_log(var_export($body, true));
 		if (empty($body['body'])) {
 			throw Exception("not token");
 		}
@@ -181,7 +180,6 @@ class HttpClient {
 				"ignore_errors" => true
 			)
 		);
-		error_log(var_export($context, true));
 
 		$response = file_get_contents($this->_url, false, stream_context_create($context));
 		$pos = strpos($http_response_header[0], '200');
